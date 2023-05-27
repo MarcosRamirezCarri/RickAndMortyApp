@@ -1,0 +1,75 @@
+.warning {
+    border: solid red 1px;
+    border-radius: 0.2em;
+  }
+  
+  .danger {
+    font-size: 10px;
+    color: red;
+    margin-left: 10em;
+  }
+
+.container{
+    margin: 200px;
+    padding: 20px;
+    width: 30%;
+    border-radius: 30px;
+    justify-content: center;
+   display: inline-block;
+    border: 3px solid green;
+    background-color: rgb(0, 80, 0);
+    background-image: url(https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg);
+   background-size: cover;
+}
+
+.loginBarContainer{
+    margin: 20px;
+    justify-content: center;
+    background-color: rgb(1, 164, 1);
+    opacity: .8;
+    border: 1px solid black;
+}
+.loginBarContainer :content{
+    background-color: rgb(1, 164, 1);
+    opacity: .7;
+    border: 1px solid black;
+}
+
+.containerWords{
+  color: rgb(53, 85, 16);
+  opacity: .8;
+  border-radius: 20px;
+  border: 2px solid black;
+  margin: 30px;
+  background-color: rgb(5, 218, 5);
+}
+
+.wordsStyle{
+  font-style: oblique;
+  color: black;
+  opacity: none;
+  text-shadow: 1px rgb(0, 0, 0);
+}
+.wordsStyle2{
+  font-style: italic;
+  color: black;
+  opacity: none;
+  text-shadow: 1px rgb(0, 0, 0);
+}
+
+.buttonStyle{
+  margin: 30px;
+  background-color: rgb(1, 162, 1);
+  font-style: oblique;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 50px;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+.buttonStyle:hover{
+
+animation:vibrate 0.2s linear both} @keyframes vibrate{0%{transform:translate(0)}20%{transform:translate(-2px,2px)}40%{transform:translate(-2px,-2px)}60%{transform:translate(2px,2px)}80%{transform:translate(2px,-2px)}100%{transform:translate(0)}}
+
+  

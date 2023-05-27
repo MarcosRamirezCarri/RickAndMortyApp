@@ -1,0 +1,19 @@
+.container{
+    background-color: rgb(4, 159, 4);
+    border: 2px solid rgb(0, 46, 0);
+    display: inline-block;
+    opacity: 0.9;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.containerWords{
+    text-decoration: none;
+    font-style: italic;
+}
+
+.containerImagen{
+    width: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+}

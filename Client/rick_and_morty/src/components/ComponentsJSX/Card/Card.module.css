@@ -1,0 +1,83 @@
+.container{
+    border-radius: 15px;
+   padding-block: 9px;
+   display: inline-block;
+   position: relative;
+   justify-content: space-between;
+    background-color: #1a4300;
+    width: 36vh;
+    margin: 30px;
+    border: 2px solid rgb(0, 0, 0);
+}
+.container:hover{
+   
+    width: 38vh;
+    transition: .5s;
+  
+  animation:shadow-drop-center 0.5s linear both} @keyframes shadow-drop-center{0%{box-shadow:0 0 0 0 transparent}100%{box-shadow:0 0 20px 0 rgba(255,255,255,.55)}}
+
+
+.containerName{
+    text-align: left;
+    position: absolute;
+    font-size: 13.7px;
+    bottom: 25%;
+    padding:  3px;
+    background-color: #2e7304;
+    opacity: .9;
+    left: 9px;
+    border-radius: 8px;
+    border: 1px solid black;
+    font-style: oblique;
+    max-width: fit-content;
+    color: #0D0D0D;
+    box-shadow: 2px 2px #0D0D0D;
+ 
+}
+.containerName:hover{
+animation:tracking-in-expand 0.4s linear both} @keyframes tracking-in-expand{0%{letter-spacing:-.2em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+.containerWords{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 15px;
+    background-color:  #4dc304;
+    align-items: flex-start;
+    text-align: left;
+    border: 2px black;
+    position: relative;
+    border-radius: 9px;
+    padding: 2px 4px;
+    margin: 10px;
+    left: 9px;
+    width: fit-content;
+    justify-content: flex-start;
+    box-shadow: 2px 2px #0D0D0D;
+    
+   
+     
+}
+
+.imagen{
+    width: 100%;
+    background-color: black;
+    border-radius: 30%;
+    border-color: #263849;
+    box-shadow:0 0 20px 0 rgba(255,255,255,.55);
+    border: 1px solid black;
+
+}
+.containerBoton{
+  background-color: #df0606;
+  display: inline;
+  border-radius: 20%;
+  justify-content: space-between;
+  margin: 1px;
+  border-color: #0D0D0D;
+  position: absolute;
+  opacity: .9;
+  border: 1.5px solid rgb(0, 0, 0);
+}
+.containerBoton:hover{
+animation:shadow-drop-center 0.5s linear both} @keyframes shadow-drop-center{0%{box-shadow:0 0 0 0 transparent}100%{box-shadow:0 0 20px 0 rgba(255,255,255,.55)}}
+
