@@ -14,9 +14,14 @@ useEffect(() => {
 dispatch(getFavorites())
 },[dispatch])
 
-    const myFavorites = useSelector((state) => state.myFavorites)
-    const myFavCopy = useSelector((state) => state.allCharacters)
-    console.log(myFavCopy)
+const FavoritesValid = useSelector((state) => state.myFavorites)
+const myFavorites = []
+if (Array.isArray(FavoritesValid) && FavoritesValid.length > 0) myFavorites.push(...FavoritesValid);
+    
+const myFavCopyValid = useSelector((state) => state.allCharacters)
+    const myFavCopy = []
+    if (Array.isArray(myFavCopyValid) && myFavCopyValid.length > 0) myFavCopy.push(...myFavCopyValid);
+
 
     const handleGender = (e) =>{
         const val = e.target.value
