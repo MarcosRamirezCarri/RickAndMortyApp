@@ -1,25 +1,30 @@
-const { User } = require('../DB_connection')
+const { RegisterUser } = require('../DB_connection');
 
-    const logIn = async(req, res) =>{
-        const {email, password} = req.query
-        try {
-            if (!email || !password) {
-              return res.status(400).json({ message: "Missing data" });
-            }
-            const user = await User.findOne({ where: { email } });
-            if (!user) return res.status(404).json({ message: "User not found" });
+const login = async (req, res) =>{
+    try {
+        const { email, passWord } = req.query;
 
-            user.password = password
-              ? res.status(200).json({ access: true })
-              : res.status(403).json({ message: "Wrong password" });
-        
-            return { access: true };
-          } catch (error) {
-            res.status(500).send(error.message);
-            console.log(error.message);
-          }
+        console.log(req.query)
+
+        if (!email || !passWord) return res.status(400).send
+        ('Faltan datos')
+
+            const user = await RegisterUser.findOne({
+                where: { 
+                    email 
+                }
+            })
+            if (!user) return res.status(404).send('Usuario no encontrado')
+
+            return user.passWord === passWord 
+            ? res.status(200).json ({access: true})
+            : res.status(403).send('Contraseña incorrecta')
+        }
+        catch (error) {
+        return res.status(500).json({error: error.message});
     }
+}
     
 
 
-module.exports = {logIn};
+module.exports = {login};

@@ -1,12 +1,15 @@
-const { Favorite, User } = require('../DB_connection');
+const { Favorite } = require('../DB_connection');
 
 const getFav = async (req, res) => {
-    const { idUser } = req.query;
     try {
-        const favs = await Favorite.findAll({include: [{model: User, where: {id:  idUser}}]})
-        res.status(200).json(favs);
+      const allFavorites = await Favorite.findAll({
+            attributes: ['id', 'name', 'origin', 'image', 'status', 'gender', 'species']
+      });
+      res.status(200).json(allFavorites);
     } catch (error) {
-        res.status(500).json({message: error});
+      res.status(500).json({ message: error.message });
     }
-}
+  };
+
+  module.exports = {getFav}
 

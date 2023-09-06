@@ -2,8 +2,9 @@ const axios = require('axios');
 const URL = "https://rickandmortyapi.com/api/character/";
 
 const getCharById = async(req, res) => {
-    try{
     const  { id } = req.params;
+    try{
+   
     const {data} = await axios(`${URL}/${id}`)
 
      if(!data.name)throw new Error(`ID: ${id} Not found`);

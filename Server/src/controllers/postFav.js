@@ -1,21 +1,21 @@
 const {Favorite} = require('../DB_connection')
 
 const postFav = async (req, res) => {
-    const {id, name, image, species, status, origin, gender} = req.body
-    try {
-        console.log({id, name, image, species, status, origin, gender} )
-        if ( !name || !status || !species || !gender || !origin || !image){
-          return res.status(401).json({ message: "Missing data" });
-        }
-       await Favorite.create({ name, status, species, gender, origin, image, id })
-    
-      const favorites = await Favorite.findAll();
-      console.log(favorites)
-      return res.status(200).json(favorites);
-      } catch (error) {
-        return res.status(500).json({ error: error.message })
-      }
-    };
+  const { image, name, species, gender, origin, status, id } = req.body;
+  console.log("post", id);
 
+  try {
+    if (!name || !image || !species || !gender || !status || !origin || !id)
+      return res.status(401).send("Faltan datos");
+
+    await Favorite.findOrCreate({
+      where: { name, status, origin, image, species, gender, id },
+    });
+    const favs = await Favorite.findAll();
+    return res.status(200).json(favs);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = {postFav};

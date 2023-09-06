@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-   sequelize.define('Favorite', {
+   sequelize.define('favorite', {
     id:{
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -31,5 +31,5 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
     }
-   }, { timestamps: false, tableName: 'favorites' });
+   }, { timestamps: false });
 };
