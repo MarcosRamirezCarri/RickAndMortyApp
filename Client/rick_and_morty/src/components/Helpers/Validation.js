@@ -1,13 +1,16 @@
-// const regExPassWord = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/;
-
-// const validate = (inputs) =>{ 
-//      let errors = {}
-//      if(!inputs.username) {errors.username="Tiene que introducir un Username"}
-//      if((/^[a-zA-Z0-9]+$/).test(inputs.userName)) {errors.userName="Se ha superado la cantidad de caracteres"}
-
-//      if(!inputs.passWord) {errors.passWord = "Tiene que introducir una contraseña"}
-//      if(regExPassWord.test(inputs.passWord)) {errors.passWord = "Se ha superado la cantidad de caracteres"}
-
-//      return errors;
-// }
-// export default validate
+export default function Validate(register) {
+    let errors = {};
+    let regexEmail =
+      /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/;
+    let regexPassword = /^(?=\w*\d)(?=\w*)(?=\w*[a-z])\S{8,16}$/;
+  
+    if (!regexEmail.test(register.username)) {
+      errors.email = "Invalid Email";
+    }
+    if (!regexPassword.test(register.passWord)) {
+      errors.password =
+        "The password must have at least 8 to 16 character and one digit";
+    }
+  
+    return errors;
+  }

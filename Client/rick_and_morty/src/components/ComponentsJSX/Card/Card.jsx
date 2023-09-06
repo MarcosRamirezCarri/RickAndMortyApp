@@ -3,70 +3,70 @@ import { Link, } from 'react-router-dom';
 import ROUTE from '../../Helpers/Routes.helper';
 import { addFavorite, deleteFavorite } from '../../Redux/actions';
 import React, { useState, useEffect } from 'react';
-import { connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 
 
-function Card({id, image, name, species, gender, onClose, deleteFavorite, addFavorite, myFavorites}) {
-   
+function Card({id, image, name, species, gender, status, origin, onClose}) {
+
+   const dispatch = useDispatch()
+   const myAllFavs = useSelector((state) => state.myFavorites)
+   const myFavorites = []
+   if (Array.isArray(myAllFavs) && myAllFavs.length > 0) myFavorites.push(...myAllFavs);
    const [isfav, setFav] = useState(false)
+   useEffect(() => {
+      myFavorites.forEach((fav) => { 
+        if (fav.id === id) {
+         setFav(true);
+        }
+      });
+    }, [ id]); 
 
    const handleFavorite = () =>{
-      if(isfav){
+      if(isfav === true){
          setFav(false)
-         deleteFavorite(id)
+         dispatch(deleteFavorite(id))
       }
-      else{
-         setFav(true)
-         addFavorite({id, name, image, species, gender})
-      }
+      else {
+         setFav(true);
+         dispatch(addFavorite({id, image, name, species, gender, status, origin}));
+       }
    }
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setFav(true);
-         }
-      });
-   }, [myFavorites]);
+   
 
    return (
+      <div className={style.charactersContainer}>
+         
       <div className={style.container}>
-         {isfav? null : (<button className={style.containerBoton} onClick={onClose}>X</button>)}
-         <img className={style.imagen} src={image} alt="god" />
+         <div className={style.containerBotones}>
+         {isfav? null : (<button className={style.botonsyle} onClick={onClose}>X</button>)}
+         
          {
          isfav ? (
-             <button className={style.containerBoton}  onClick={handleFavorite}>❤️</button>
+             <button className={style.botonsyle}  onClick={handleFavorite}>❤️</button>
           ) : (
-             <button  className={style.containerBoton}  onClick={handleFavorite}>🤍</button>
+             <button  className={style.botonsyle}  onClick={handleFavorite}>🤍</button>
           )
         }
-         <Link to={`${ROUTE.DETAIL}/${id}`} >
-  <h5 className={style.containerName}>{name}</h5>
-</Link>
-<h2 className={style.containerWords}>Id: {id}</h2>
-         <h2 className={style.containerWords}>Species: {species}</h2>
+        </div>
+        <div className={style.containerImagen}>
+        <p className={style.containerId}>#{id}</p>
+         <img className={style.imagen} src={image} alt="god" />
+         </div>
+         <div >
+         <Link className={style.linkDeco} to={`${ROUTE.DETAIL}/${id}`} > <h5 className={style.containerName} >{name}</h5> </Link>
+         </div>
+         
+       
+  <h2 className={style.containerWords}>Species: {species}</h2>
          <h2 className={style.containerWords}>Gender: {gender}</h2>
           
       </div>
+      </div>
+
    );
 }
 
-const mapStateToProps = (state) =>{
-return{
-   myFavorites: state.myFavorites
-}
-}
 
-const mapDispatchToProps = (dispatch) =>{
-   return{
-      addFavorite: (character) =>{
-dispatch(addFavorite(character))
-      },
-      deleteFavorite: (id) =>{
-         dispatch(deleteFavorite(id))
-      }
-   }
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card)
+export default Card

@@ -1,5 +1,32 @@
 .container{
-    display: inline-block;
-    justify-content: space-between;
-    
+    max-width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    max-height: 120vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 2px transparent;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
+.container::-webkit-scrollbar{
+    background-color: #338e06 ;
+   
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: #57c106;
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb:active {
+    background-color: #4dc304;
+}
+
+.contianerGif{
+    position: absolute;
+    top: 30vh;
+    left: 82vh;
+    animation:blur-in-expand 0.4s linear both} @keyframes blur-in-expand{0%{transform:scale(0);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+

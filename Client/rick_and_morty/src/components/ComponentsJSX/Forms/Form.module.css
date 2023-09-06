@@ -1,75 +1,107 @@
-.warning {
-    border: solid red 1px;
-    border-radius: 0.2em;
-  }
-  
-  .danger {
-    font-size: 10px;
-    color: red;
-    margin-left: 10em;
-  }
+
+.containerOFall{
+  display: flex;
+  justify-content: space-around;
+}
 
 .container{
-    margin: 200px;
+ right:370px;
+  margin-top:40px;
     padding: 20px;
-    width: 30%;
     border-radius: 30px;
-    justify-content: center;
-   display: inline-block;
-    border: 3px solid green;
+   display: flex;
+   flex-direction: column;
+   height: 420px;
+   width: 450px;
+   background-image: url(https://pittnews.com/wp-content/uploads/2020/05/Image-from-iOS-1-900x694.png);
+    border: 1px transparent;
     background-color: rgb(0, 80, 0);
-    background-image: url(https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg);
+    background-repeat: no-repeat;
    background-size: cover;
+   animation: glow 1s infinite alternate;
+}
+.div_input {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(233, 250, 199);
+  padding: 6px 6px;
+  height: 40px;
+ top: 5vh;
+  border: 1px transparent;
+}
+.div_input2 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(233, 250, 199);
+  padding: 6px 6px;
+  height: 40px;
+  top: 6vh;
+  border: 1px transparent;
+}
+
+
+.danger {
+  margin-left: 15px;
+    color: #DF4545;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .loginBarContainer{
-    margin: 20px;
-    justify-content: center;
-    background-color: rgb(1, 164, 1);
-    opacity: .8;
-    border: 1px solid black;
+  border: none;
+  background-color:rgb(233, 250, 199);
+  height: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 4px 9px;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.6px;
+  width: 100%;
 }
-.loginBarContainer :content{
+.loginBarContainer::content{
     background-color: rgb(1, 164, 1);
     opacity: .7;
     border: 1px solid black;
 }
-
-.containerWords{
-  color: rgb(53, 85, 16);
-  opacity: .8;
-  border-radius: 20px;
-  border: 2px solid black;
-  margin: 30px;
-  background-color: rgb(5, 218, 5);
-}
-
-.wordsStyle{
-  font-style: oblique;
-  color: black;
-  opacity: none;
-  text-shadow: 1px rgb(0, 0, 0);
-}
-.wordsStyle2{
-  font-style: italic;
-  color: black;
-  opacity: none;
-  text-shadow: 1px rgb(0, 0, 0);
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 7vh;
+  position: relative;
+  gap: 10px;
 }
 
 .buttonStyle{
-  margin: 30px;
-  background-color: rgb(1, 162, 1);
+
+  background-color: #4dc304;
   font-style: oblique;
-  border: 2px solid black;
-  border-radius: 10px;
-  width: 50px;
-  font-size: 13px;
+  border: 1px transparent;
+  border-radius: 5px;
+width: 26%;
+  font-size: 0.95rem;
   font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
 }
+
 
 .buttonStyle:hover{
 
 animation:vibrate 0.2s linear both} @keyframes vibrate{0%{transform:translate(0)}20%{transform:translate(-2px,2px)}40%{transform:translate(-2px,-2px)}60%{transform:translate(2px,2px)}80%{transform:translate(2px,-2px)}100%{transform:translate(0)}}
 
-  
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+}

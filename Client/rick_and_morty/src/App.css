@@ -1,3 +1,17 @@
 .App {
    text-align: center;
+
+}
+
+.App::-webkit-scrollbar{
+   background-color: #338e06 ;
+  
+   border-radius: 5px;
+}
+.App::-webkit-scrollbar-thumb {
+   background: #57c106;
+   border-radius: 5px;
+}
+.App::-webkit-scrollbar-thumb:active {
+   background-color: #4dc304;
 }

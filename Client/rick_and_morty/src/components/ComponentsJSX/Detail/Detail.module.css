@@ -1,58 +1,154 @@
 .container{
-    padding: 10px;
-    margin: 20px;
-    background-color: #1a4300;
-    border: 2px solid black;
-    border-radius: 20px;
-    display: inline-flex;
-    box-shadow:0 0 20px 0 rgba(255,255,255,.55);
-
+    display: flex;
+    width: 90%;
+    gap: 50px;
+    margin-top: 20px;
+    margin-left: 11vh;
+ 
+    height: 100%;
+    overflow-x: hidden;
 }
 
+.containercuadr{
+    padding: 10px;
+    background-color: #3cad04;
+    border-top: 6px solid #1e3f00;
+    border-radius: 10px;
+    display: flex;
+    max-width: 60vh;
+    flex-direction: column;
+    box-shadow: rgba(187, 197, 204, 0.3) 0px 1px 2px 0px, rgba(188, 200, 210, 0.15) 0px 2px 6px 2px;
+animation:blur-in-expand 0.4s linear both} @keyframes blur-in-expand{0%{transform:scale(0);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+
+.containercuadrDetail{
+    padding: 10px;
+    border-top: 6px solid #1e3f00;
+    background-color: #3cad04;
+ 
+    box-shadow: rgba(187, 197, 204, 0.3) 0px 1px 2px 0px, rgba(188, 200, 210, 0.15) 0px 2px 6px 2px;
+    
+    border-radius: 5px;
+    display: flex;
+    min-width: 36vh;
+    height: 100%;
+    flex-direction: column;
+    animation:blur-in-expand 0.4s linear both} @keyframes blur-in-expand{0%{transform:scale(0);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+
+    
+
+
+.containerCuadrFavorite{
+    padding: 10px;
+    background-color: #3cad04;
+    border-top: 6px solid #1e3f00;
+    box-shadow: rgba(187, 197, 204, 0.3) 0px 1px 2px 0px, rgba(188, 200, 210, 0.15) 0px 2px 6px 2px;
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    left: 580px;
+    top: 450px;
+    justify-content: left;
+    min-width: 86vh;
+    height: 28vh;
+    flex-direction: column;
+    animation:blur-in-expand 0.4s linear both} @keyframes blur-in-expand{0%{transform:scale(0);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+
+
+
 .containerImg{
-    align-items: end;
-    justify-self: end;
     position: relative;
-    border: 1px solid black;
-    box-shadow:0 0 20px 0 rgba(255,255,255,.55);
+    border: 1px transparent;
     border-radius: 20px;
+    right: 5px;
+    height: 400px;
+    width: 400px;
+    animation: glow 1.5s infinite alternate;
 }
 
 .containerWordsDetail{
-    text-decoration: double;
     font-style: italic;
     font-weight: normal;
-    font-size: 20px;
-    background-color:  #4dc304;
-    align-items: flex-start;
-    text-align: left;
+    font-size: 1.3rem;
     border: 2px black;
-    position: relative;
-    border-radius: 9px;
+    border-radius: 5px;
     padding: 2px 4px;
     margin: 10px;
-    left: 9px;
     width: fit-content;
-    justify-content: flex-start;
-    box-shadow: 2px 2px #0D0D0D;
-    
-   
      
 }
 
 .containerNameDetail{
-    text-align: left;
-    font-size: 30px;
-    bottom: 25%;
+    font-size: 1.5rem;
     padding:  5px;
-    background-color: #2e7304;
+    background-color: #57c106;
     opacity: .9;
     left: 9px;
     border-radius: 6px;
-    border: 1px solid black;
+    border: 1px transparent;
     font-style: oblique;
     max-width: fit-content;
     color: #0D0D0D;
-    box-shadow: 2px 2px #0D0D0D;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
  
 }
+.containerWordsDetailDead{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.4rem;
+    border: 2px black;
+    border-radius: 5px;
+    padding: 2px 4px;
+    background-color: #7a0e04;
+    margin: 10px;
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+     
+}
+
+.containerWordsDetailUnknown{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.4rem;
+    border: 2px black;
+    border-radius: 5px;
+    padding: 2px 4px;
+    background-color: #023195;
+    margin: 10px;
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+     
+}
+
+.loaderGif{
+    position: relative;
+    left: 38%;
+    top: 30%;
+}
+
+.botonStyles{
+    position: relative;
+    height: 7vh;
+    font-weight: 800;
+    font-size: 1.30rem;
+    width: 15vh;
+    border: 1px transparent ;
+    color: #0D0D0D;
+    font-style: oblique;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color:#57c106;
+}
+.botonStyles:hover{
+animation:vibrate 0.4s linear both} @keyframes vibrate{0%{transform:translate(0)}20%{transform:translate(-2px,2px)}40%{transform:translate(-2px,-2px)}60%{transform:translate(2px,2px)}80%{transform:translate(2px,-2px)}100%{transform:translate(0)}}
+
+
+
+@keyframes glow {
+    from {
+      box-shadow: 0 0 10px -10px rgba(128, 215, 52, 0.55);
+    }
+    to {
+      box-shadow: 0 0 10px 10px rgba(128, 215, 52, 0.55);
+    }
+  }
+

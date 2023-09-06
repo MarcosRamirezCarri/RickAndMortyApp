@@ -1,11 +1,53 @@
-import React from "react";
-import { connect } from "react-redux"
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getFavorites, filterCards, orderCards } from "../../Redux/actions";
 import Card from "../Card/Card";
+import portalGif from '../../imagenes/portalGod.gif'
+import style from './Favorites.module.css'
 
-const FavList = ({myFavorites}) =>{
-    return(
-    <div>
-        {myFavorites ? myFavorites.map(
+const FavList = () =>{
+
+    const dispatch = useDispatch();
+    
+
+useEffect(() => {
+dispatch(getFavorites())
+},[dispatch])
+
+    const myFavorites = useSelector((state) => state.myFavorites)
+    const myFavCopy = useSelector((state) => state.allCharacters)
+    console.log(myFavCopy)
+
+    const handleGender = (e) =>{
+        const val = e.target.value
+dispatch(filterCards(val))
+    }
+    const handleAlphabet = (e) =>{
+const val = e.target.value;
+dispatch(orderCards(val))
+    }
+    return(<div>
+        { myFavCopy.length === 0 ? null : <div>
+            <select className={style.contSelects} onChange={handleGender}>
+            <option select disabled>Filter by Gender</option>
+<option  value='reset'>Reset all</option>
+<option  value='Male'>Male</option>
+<option  value='Female'>Female</option>
+<option  value='Genderless'>Genderless</option>
+<option  value='unknown'>Unknown</option>
+            </select>
+            <select className={style.contSelects2} onChange={handleAlphabet}>
+                <option select disabled>Order alphabetically</option>
+                <option value='Asc'>Ascendant</option>
+                <option value='desc'>Descendant</option>
+            </select>
+        </div>
+        }
+    <div className={style.container}>
+       
+        {myFavorites.length === 0 ? <div className={style.contianerGif}>
+            <img src={portalGif} alt="portal"/>
+        </div> : myFavorites.map(
             ({id, 
                 image, 
                 name, 
@@ -15,17 +57,15 @@ const FavList = ({myFavorites}) =>{
                }) =>
             (<Card id={id} image={image} name={name} species={species} gender={gender} key={key} />)
             
-        ) : <h1>Añade tus personajes favorito!</h1> }
+        )}
 
+    </div>
     </div>
     )
 }
-const mapStateToProps = (state) =>{
-    return{
-        myFavorites: state.myFavorites
-    }
 
 
-}
 
-export default connect(mapStateToProps, null)(FavList)
+
+
+export default  FavList
